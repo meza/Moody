@@ -43,10 +43,10 @@ public class MoodyActivity extends Activity {
 	}
 
 	@Override
-	public void onPause()
+	public void onDestroy()
 	{
 		super.onPause();
-		Log.i(TAG, "I AM PAUSED BABY!");
+		Log.i(TAG, "I AM GONE BABY!");
 		if(locationManager.getProviders(true).contains(TEST_PROVIDER)) {
 			locationManager.removeTestProvider(TEST_PROVIDER);
 		}
