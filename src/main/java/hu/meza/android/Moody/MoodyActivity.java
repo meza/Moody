@@ -34,7 +34,7 @@ public class MoodyActivity extends Activity {
 		field.setText(location);
 	}
 	
-	private String getBestProvider()
+	public String getBestProvider()
 	{
 		if(locationManager.getProviders(true).contains(TEST_PROVIDER)) {
 			return TEST_PROVIDER;
