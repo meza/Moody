@@ -12,21 +12,28 @@ import android.widget.EditText;
 public class MoodyActivity extends Activity {
 
 	public static final String TEST_PROVIDER = "testProvider";
+	private static String TAG = MoodyActivity.class.getSimpleName();
 	LocationManager locationManager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		LocationListener locationListener = new LocationUpdater((EditText) findViewById(R.id.locationInput));
+		LocationListener locationListener = new LocationUpdater(this);
 		locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		String locationProvider = getBestProvider();
-		Log.i("APP_MAIN", "I will use: "+locationProvider+" as provider");
-		Log.i("APP_MAIN", "Location manager is: "+Integer.toString(locationManager.hashCode()));
+		Log.i(TAG, "I will use: "+locationProvider+" as provider");
+		Log.i(TAG, "Location manager is: "+Integer.toString(locationManager.hashCode()));
 		locationManager.requestLocationUpdates(locationProvider, 1000, 1000, locationListener);
-		Log.i("APP_MAIN", "I have set up the listener");
+		Log.i(TAG, "I have set up the listener");
 	}
 
+	public void updateLocation(String location)
+	{
+		EditText field = (EditText) this.findViewById(R.id.locationInput);
+		field.setText(location);
+	}
+	
 	private String getBestProvider()
 	{
 		if(locationManager.getProviders(true).contains(TEST_PROVIDER)) {
@@ -39,7 +46,7 @@ public class MoodyActivity extends Activity {
 	public void onPause()
 	{
 		super.onPause();
-		Log.i("APP_MAIN", "I AM PAUSED BABY!");
+		Log.i(TAG, "I AM PAUSED BABY!");
 		if(locationManager.getProviders(true).contains(TEST_PROVIDER)) {
 			locationManager.removeTestProvider(TEST_PROVIDER);
 		}
