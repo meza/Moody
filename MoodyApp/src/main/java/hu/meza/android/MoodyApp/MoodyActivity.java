@@ -1,4 +1,4 @@
-package hu.meza.android.Moody;
+package hu.meza.android.MoodyApp;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
+import hu.meza.android.MoodyApp.R;
 
 public class MoodyActivity extends Activity {
 

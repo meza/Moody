@@ -1,7 +1,7 @@
-package hu.meza.android.Moody.test;
+package hu.meza.android.MoodyTest;
 
-import hu.meza.android.Moody.MoodyActivity;
-import hu.meza.android.Moody.R;
+import hu.meza.android.MoodyApp.MoodyActivity;
+import hu.meza.android.MoodyApp.R;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;

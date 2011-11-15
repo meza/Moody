@@ -1,4 +1,4 @@
-package hu.meza.android.Moody;
+package hu.meza.android.MoodyApp;
 
 import android.location.Location;
 import android.location.LocationListener;

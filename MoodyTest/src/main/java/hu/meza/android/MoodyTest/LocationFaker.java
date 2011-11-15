@@ -1,4 +1,4 @@
-package hu.meza.android.Moody.test;
+package hu.meza.android.MoodyTest;
 
 import android.location.Location;
 import android.location.LocationManager;
