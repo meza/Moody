@@ -9,7 +9,6 @@ import android.location.LocationManager;
 import android.test.ActivityUnitTestCase;
 import android.test.IsolatedContext;
 import android.test.suitebuilder.annotation.MediumTest;
-import android.test.suitebuilder.annotation.SmallTest;
 import android.widget.EditText;
 
 public class MoodyTest extends ActivityUnitTestCase<MoodyActivity> {
@@ -98,15 +97,16 @@ public class MoodyTest extends ActivityUnitTestCase<MoodyActivity> {
 		TestLocationListener testListener = new TestLocationListener();
 		final LocationManager locationManager = (LocationManager) locationFaker
 				.getFakedManager();
-		locationManager.requestSingleUpdate(MoodyActivity.TEST_PROVIDER, testListener,
-				getActivity().getMainLooper());
+		locationManager.requestSingleUpdate(MoodyActivity.TEST_PROVIDER,
+				testListener, getActivity().getMainLooper());
 
 		locationFaker.publishMockLocation(MoodyActivity.TEST_PROVIDER,
 				latitude, longitude, System.currentTimeMillis());
 		try {
 			Thread.sleep(100);
-			//Verify that the listener receives the location
-			assertNotNull("Location not received", testListener.receivedLocation());
+			// Verify that the listener receives the location
+			assertNotNull("Location not received",
+					testListener.receivedLocation());
 		} catch (InterruptedException e) {
 			fail("Waiting for location has been interrupted");
 		}

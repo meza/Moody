@@ -3,7 +3,6 @@ package hu.meza.android.MoodyTest;
 import android.location.Location;
 import android.location.LocationManager;
 import android.location.LocationProvider;
-import android.util.Log;
 
 public class LocationFaker {
 
@@ -55,9 +54,6 @@ public class LocationFaker {
 		newLocation.setTime(time);
 		newLocation.setAccuracy(0);
 		lm.setTestProviderLocation(testProvider, newLocation);
-		
-		Log.i(TAG, "I issued an update to " + testProvider + " "
-				+ Integer.toString(lm.hashCode()));
 
 	}
 }
