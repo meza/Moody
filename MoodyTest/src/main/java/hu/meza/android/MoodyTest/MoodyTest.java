@@ -4,11 +4,11 @@ import hu.meza.android.MoodyApp.MoodyActivity;
 import hu.meza.android.MoodyApp.R;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Looper;
 import android.test.ActivityUnitTestCase;
 import android.test.IsolatedContext;
 import android.test.suitebuilder.annotation.MediumTest;
@@ -52,9 +52,7 @@ public class MoodyTest extends ActivityUnitTestCase<MoodyActivity> {
 	
 	@SmallTest
 	public void testThatTheTestProviderIsInUse() {
-		startActivity(mStartIntent, null, null);
-		setActivityContext(mcontext);
-		getActivity().onCreate(null);
+		bootActvity();
 		assertEquals("Test provider not injected", MoodyActivity.TEST_PROVIDER,
 				getActivity().getBestProvider());
 		getActivity().onDestroy();
@@ -62,24 +60,41 @@ public class MoodyTest extends ActivityUnitTestCase<MoodyActivity> {
 
 	@MediumTest
 	public void testIfMyLocationIsProperlyResolved() {
+		bootActvity();
 		testForLocation(37.7827, -122.421);
+		getActivity().onDestroy();
 	}
 
 	@MediumTest
-	public void testIfMyLocationIsProperlyResolved2() {
+	public void testIfMyLocationIsProperlyResolvedInPortraitMode() {
+		bootActvity();
+		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		testForLocation(47.49897, 19.0407);
+		getActivity().onDestroy();
+	}
+	
+	@MediumTest
+	public void testIfMyLocationIsProperlyResolvedInLandscapeMode()
+	{
+		bootActvity();
+		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		testForLocation(47.7827, 12.4234);
+		getActivity().onDestroy();
 	}
 
 	private void testForLocation(double latitude, double longitude) {
-		startActivity(mStartIntent, null, null);
-		getActivity().onCreate(null);
 		field = (EditText) getActivity()
 				.findViewById(R.id.locationInput);
 		setMyLatLong(latitude, longitude);
 		String actual = field.getText().toString();
 		String expected = String.format("%2.7f, %2.7f", latitude, longitude);
 		assertEquals(expected, actual);
-		getActivity().onDestroy();
+	}
+
+	private void bootActvity() {
+		startActivity(mStartIntent, null, null);
+		setActivityContext(mcontext);
+		getActivity().onCreate(null);
 	}
 
 	private void setMyLatLong(double latitude, double longitude) {
