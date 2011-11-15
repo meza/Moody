@@ -24,7 +24,7 @@ public class MoodyActivity extends Activity {
 		String locationProvider = getBestProvider();
 		Log.i(TAG, "I will use: "+locationProvider+" as provider");
 		Log.i(TAG, "Location manager is: "+Integer.toString(locationManager.hashCode()));
-		locationManager.requestLocationUpdates(locationProvider, 1000, 1000, locationListener);
+		locationManager.requestSingleUpdate(locationProvider, locationListener, getMainLooper());
 		Log.i(TAG, "I have set up the listener");
 	}
 
