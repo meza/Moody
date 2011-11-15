@@ -138,7 +138,7 @@ public class MoodyTest extends ActivityUnitTestCase<MoodyActivity> {
 		locationFaker.publishMockLocation(MoodyActivity.TEST_PROVIDER,
 				latitude, longitude, System.currentTimeMillis());
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(100);
 			assertNotNull("Location not received", ll.receivedLocation());
 		} catch (InterruptedException e) {
 			fail("Waiting for location has been interrupted");

@@ -33,13 +33,16 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<scm>
+		<url>http://github.com/meza/Moody/</url>
+	</scm>
 	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 					<artifactId>android-maven-plugin</artifactId>
-					<version>3.0.0-alpha-13</version>
+					<version>3.0.0-alpha-14</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
