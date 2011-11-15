@@ -10,7 +10,7 @@
   </parent>
 
   <groupId>hu.meza.android</groupId>
-  <artifactId>Moody-it</artifactId>
+  <artifactId>MoodyTest</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>apk</packaging>
   <name>Moody - Integration tests</name>
@@ -26,7 +26,7 @@
     </dependency>
     <dependency>
       <groupId>hu.meza.android</groupId>
-      <artifactId>Moody</artifactId>
+      <artifactId>MoodyApp</artifactId>
       <type>apk</type>
       <version>1.0-SNAPSHOT</version>
     </dependency>
