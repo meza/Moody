@@ -21,8 +21,8 @@ public class MoodyActivity extends Activity {
 		locationManager = (LocationManager) this
 				.getSystemService(Context.LOCATION_SERVICE);
 		String locationProvider = getBestProvider();
-		locationManager.requestSingleUpdate(locationProvider, locationListener,
-				getMainLooper());
+		locationManager.requestLocationUpdates(locationProvider, 0, 0,
+				locationListener, getMainLooper());
 	}
 
 	public void updateLocation(String location) {

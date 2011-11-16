@@ -15,7 +15,6 @@ public class LocationFaker {
 	private static final boolean SUPPORTS_ALTITUDE = true;
 	private static final boolean SUPPORTS_SPEED = true;
 	private static final boolean SUPPORTS_BEARING = true;
-	private static String TAG = LocationFaker.class.getSimpleName();
 
 	public LocationFaker(LocationManager locationManager) {
 		lm = locationManager;

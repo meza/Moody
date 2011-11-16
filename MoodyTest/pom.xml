@@ -34,10 +34,27 @@
 			<type>jar</type>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.jayway.android.robotium</groupId>
+			<artifactId>robotium-solo</artifactId>
+			<version>[2.5,)</version>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.powermock</groupId> -->
+		<!-- <artifactId>powermock</artifactId> -->
+		<!-- <version>1.4.9</version> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>[1.4.10,)</version>
+		</dependency>
+
 	</dependencies>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
 
 	<build>
 		<plugins>
@@ -52,6 +69,20 @@
 					<sdk>
 						<platform>14</platform>
 					</sdk>
+					<emulator>
+						<avd>desire_hd</avd>
+						<wait>10000</wait>
+						<options>-no-skin</options>
+					</emulator>
+					<executions>
+						<execution>
+							<id>startEmulator</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>emulator-start</goal>
+							</goals>
+						</execution>
+					</executions>
 					<deleteConflictingFiles>true</deleteConflictingFiles>
 					<undeployBeforeDeploy>true</undeployBeforeDeploy>
 				</configuration>
@@ -65,6 +96,7 @@
 					<target>1.6</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
+
 			</plugin>
 		</plugins>
 	</build>

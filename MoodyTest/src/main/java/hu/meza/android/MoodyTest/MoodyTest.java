@@ -97,13 +97,13 @@ public class MoodyTest extends ActivityUnitTestCase<MoodyActivity> {
 		TestLocationListener testListener = new TestLocationListener();
 		final LocationManager locationManager = (LocationManager) locationFaker
 				.getFakedManager();
-		locationManager.requestSingleUpdate(MoodyActivity.TEST_PROVIDER,
-				testListener, getActivity().getMainLooper());
+		locationManager.requestLocationUpdates(MoodyActivity.TEST_PROVIDER, 0,
+				0, testListener, getActivity().getMainLooper());
 
 		locationFaker.publishMockLocation(MoodyActivity.TEST_PROVIDER,
 				latitude, longitude, System.currentTimeMillis());
 		try {
-			Thread.sleep(100);
+			Thread.sleep(300);
 			// Verify that the listener receives the location
 			assertNotNull("Location not received",
 					testListener.receivedLocation());
