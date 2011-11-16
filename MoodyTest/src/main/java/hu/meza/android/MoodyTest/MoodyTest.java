@@ -103,7 +103,7 @@ public class MoodyTest extends ActivityUnitTestCase<MoodyActivity> {
 		locationFaker.publishMockLocation(MoodyActivity.TEST_PROVIDER,
 				latitude, longitude, System.currentTimeMillis());
 		try {
-			Thread.sleep(300);
+			Thread.sleep(1000);
 			// Verify that the listener receives the location
 			assertNotNull("Location not received",
 					testListener.receivedLocation());
