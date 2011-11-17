@@ -1,13 +1,13 @@
 package hu.meza.android.MoodyApp.test;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
-public class dummyTest extends TestCase {
+public class dummyTest
+{
 
 	@Test
-	public void test() {
+	public void test()
+	{
 		// fail("Not yet implemented");
 	}
 

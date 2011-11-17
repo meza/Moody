@@ -4,7 +4,8 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.location.LocationProvider;
 
-public class LocationFaker {
+public class LocationFaker
+{
 
 	private LocationManager lm;
 
@@ -16,35 +17,59 @@ public class LocationFaker {
 	private static final boolean SUPPORTS_SPEED = true;
 	private static final boolean SUPPORTS_BEARING = true;
 
-	public LocationFaker(LocationManager locationManager) {
+
+	public LocationFaker(LocationManager locationManager)
+	{
 		lm = locationManager;
 	}
 
-	public Object getFakedManager() {
+
+	public Object getFakedManager()
+	{
 		return lm;
 	}
 
-	public void createTestProvider(String testProvider, long time) {
+
+	public void createTestProvider(String testProvider, long time)
+	{
 		if (!hasTestProvider(testProvider)) {
-			lm.addTestProvider(testProvider, REQUIRES_NETWORK,
-					REQUIRES_SATELLITE, REQUIRES_CELL, HAS_MONETARY_COST,
-					SUPPORTS_ALTITUDE, SUPPORTS_SPEED, SUPPORTS_BEARING,
-					android.location.Criteria.POWER_LOW,
-					android.location.Criteria.ACCURACY_COARSE);
+			lm.addTestProvider(
+				testProvider,
+				REQUIRES_NETWORK,
+				REQUIRES_SATELLITE,
+				REQUIRES_CELL,
+				HAS_MONETARY_COST,
+				SUPPORTS_ALTITUDE,
+				SUPPORTS_SPEED,
+				SUPPORTS_BEARING,
+				android.location.Criteria.POWER_LOW,
+				android.location.Criteria.ACCURACY_COARSE);
 			lm.setTestProviderEnabled(testProvider, true);
-			lm.setTestProviderStatus(testProvider, LocationProvider.AVAILABLE,
-					null, time);
+			lm.setTestProviderStatus(
+				testProvider,
+				LocationProvider.AVAILABLE,
+				null,
+				time);
 		}
-		lm.setTestProviderStatus(testProvider, LocationProvider.AVAILABLE,
-				null, time);
+		lm.setTestProviderStatus(
+			testProvider,
+			LocationProvider.AVAILABLE,
+			null,
+			time);
 	}
 
-	private boolean hasTestProvider(String testProvider) {
+
+	private boolean hasTestProvider(String testProvider)
+	{
 		return lm.getAllProviders().contains(testProvider);
 	}
 
-	public void publishMockLocation(String testProvider, double latitude,
-			double longitude, long time) {
+
+	public void publishMockLocation(String testProvider,
+		double latitude,
+		double longitude,
+		long time)
+	{
 		lm.setTestProviderEnabled(testProvider, true);
 		Location newLocation = new Location(testProvider);
 
