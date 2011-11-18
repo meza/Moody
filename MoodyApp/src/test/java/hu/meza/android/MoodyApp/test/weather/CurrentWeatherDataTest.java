@@ -5,7 +5,7 @@ import hu.meza.android.MoodyApp.weather.WindDirection;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class WeatherDataObjectTest
+public class CurrentWeatherDataTest
 {
 
 	int cloudCover = 0;
