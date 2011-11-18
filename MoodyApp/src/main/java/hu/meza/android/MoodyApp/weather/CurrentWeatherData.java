@@ -1,29 +1,30 @@
 package hu.meza.android.MoodyApp.weather;
 
-public class WeatherData
+import com.google.gson.annotations.SerializedName;
+
+public class CurrentWeatherData
 {
 
+	@SerializedName("cloudcover")
 	private int cloudCover = 0;
 	private int humidity = 0;
 	private int pressure = 0;
-	private int tempMin = 0;
+	@SerializedName("temp_C")
 	private int temp = 0;
-	private int tempMax = 0;
 	private int visibility = 0;
 	private int weatherCode = 0;
 	private int winddirDegree = 0;
+	@SerializedName("windspeedKmph")
 	private int windspeed = 0;
 	private double precipMM = 0.0;
 	private String winddir16Point = "";
 
 
-	public WeatherData(int cloudCover,
+	public CurrentWeatherData(int cloudCover,
 		int humidity,
 		double precipMM,
 		int pressure,
-		int tempMin,
 		int temp,
-		int tempMax,
 		int visibility,
 		int weatherCode,
 		String winddir16Point,
@@ -34,9 +35,7 @@ public class WeatherData
 		this.humidity = humidity;
 		this.precipMM = precipMM;
 		this.pressure = pressure;
-		this.tempMin = tempMin;
 		this.temp = temp;
-		this.tempMax = tempMax;
 		this.visibility = visibility;
 		this.weatherCode = weatherCode;
 		this.winddir16Point = winddir16Point;
@@ -45,7 +44,7 @@ public class WeatherData
 	}
 
 
-	public WeatherData()
+	public CurrentWeatherData()
 	{}
 
 
@@ -73,21 +72,9 @@ public class WeatherData
 	}
 
 
-	public int tempMin()
-	{
-		return tempMin;
-	}
-
-
 	public int temp()
 	{
 		return temp;
-	}
-
-
-	public int tempMax()
-	{
-		return tempMax;
 	}
 
 
@@ -103,9 +90,9 @@ public class WeatherData
 	}
 
 
-	public String winddir16Point()
+	public WindDirection winddir16Point()
 	{
-		return winddir16Point;
+		return WindDirection.getByString(winddir16Point);
 	}
 
 
