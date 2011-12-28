@@ -30,7 +30,7 @@ public class WeatherDataFetcherTest
 
 
 	@Test
-	public void test()
+	public void testThatCorrectURLIsCalled()
 		throws ClientProtocolException, IOException, URISyntaxException
 	{
 		int longitude = 10;

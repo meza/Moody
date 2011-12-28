@@ -107,4 +107,23 @@ public class CurrentWeatherData
 		return windspeed;
 	}
 
+
+	public int hashCode()
+	{
+		String format = "%s%s%s%s%s%s%s%s%s%s";
+		String op = String.format(
+			format,
+			this.cloudCover,
+			this.humidity,
+			this.precipMM,
+			this.pressure,
+			this.temp,
+			this.visibility,
+			this.weatherCode,
+			this.winddir16Point,
+			this.winddirDegree,
+			this.windspeed);
+		return op.hashCode();
+	}
+
 }

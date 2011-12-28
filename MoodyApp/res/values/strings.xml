@@ -2,4 +2,5 @@
 <resources>
     <string name="hello">Hello Moody!</string>
     <string name="app_name">Moody</string>
+    <string name="currentWeather">Current Weather</string>
 </resources>

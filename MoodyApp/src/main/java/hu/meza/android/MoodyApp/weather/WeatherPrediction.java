@@ -1,5 +1,6 @@
 package hu.meza.android.MoodyApp.weather;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
 public class WeatherPrediction
@@ -26,4 +27,29 @@ public class WeatherPrediction
 		return weatherData.forecastFor(dayIndex);
 	}
 
+
+	public void setData(CurrentWeatherData current,
+		ForecastWeatherData[] forecast)
+	{
+		weatherData = new JSONWeatherDataWrapper();
+		weatherData.setData(current, forecast);
+	}
+
+
+	public String asJSON()
+	{
+		return new Gson().toJson(this);
+	}
+
+
+	public int hashCode()
+	{
+		return weatherData.hashCode();
+	}
+
+
+	public boolean equals(WeatherPrediction other)
+	{
+		return (this.hashCode() == other.hashCode());
+	}
 }

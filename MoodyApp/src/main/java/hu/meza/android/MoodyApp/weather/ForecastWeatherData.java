@@ -87,4 +87,22 @@ public class ForecastWeatherData
 	{
 		return WindDirection.getByString(winddirection);
 	}
+
+
+	public int hashCode()
+	{
+		String format = "%s%s%s%s%s%s%s%s";
+		String op = String.format(
+			format,
+			this.precipMM,
+			this.tempMin,
+			this.tempMax,
+			this.weatherCode,
+			this.winddir16Point,
+			this.winddirDegree,
+			this.winddirection,
+			this.windspeed);
+
+		return op.hashCode();
+	}
 }
