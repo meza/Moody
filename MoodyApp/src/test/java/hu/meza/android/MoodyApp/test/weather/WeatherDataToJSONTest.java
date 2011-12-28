@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import com.google.gson.Gson;
 
-public class WeatherDataBuilderTest
+public class WeatherDataToJSONTest
 {
 	@Test
 	public void testMyDataToJSONImplementation()
